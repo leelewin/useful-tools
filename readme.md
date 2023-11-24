@@ -1,6 +1,5 @@
-## useful-tools
-## docker
-### 介绍
+# useful-tools
+## 1.docker
 docker_run.sh
 
 useful docker shell script
@@ -12,9 +11,8 @@ useful docker shell script
 用法：
 `bash docker_run.sh`
 
-## vscode config
+## 2.vscode config
 
-### 介绍
 包括三种debug模式
 1.单源文件   一键debug
 2.可执行文件  适当配置后一键debug
@@ -23,10 +21,10 @@ useful docker shell script
 配合gdb强大的调试功能
 
 
-# vim
+## 3.vim
 vim的一些快捷键的用法
 
 
 
-# git
+## 4.git
 git的使用的一些心得体会
