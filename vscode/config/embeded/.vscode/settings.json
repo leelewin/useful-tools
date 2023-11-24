@@ -1,0 +1,10 @@
+{
+	"C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+	"cortex-debug.armToolchainPath": "D:\\Arm-Development-Toolchains\\gcc-arm-none-eabi-10.3-2021.10\\bin",
+	"cortex-debug.armToolchainPrefix": "arm-none-eabi",
+	"cortex-debug.openocdPath": "D:\\Arm-Development-Toolchains\\OpenOCD\\bin\\openocd.exe",
+	"files.associations": {
+		"main.h": "c"
+	},
+	"cmake.configureOnOpen": true
+}

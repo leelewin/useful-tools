@@ -1,0 +1,191 @@
+{
+    // "editor.fontFamily": "monospace",
+    "files.autoSave": "afterDelay",
+    "remote.SSH.showLoginTerminal": true,
+    "editor.fontSize": 20,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.languageServer": "Default",
+    "jupyter.alwaysTrustNotebooks": true,
+    "tabnine.experimentalAutoImports": true,
+    "kite.showWelcomeNotificationOnStartup": false,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+
+    "editor.tabSize": 4,
+    "editor.cursorStyle": "line",
+    "editor.insertSpaces": false,
+    "editor.minimap.maxColumn": 70,
+    //设置相对行号
+    "editor.lineNumbers": "relative",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.wordWrap": "off",
+    "python.showStartPage": false,
+    "jupyter.jupyterServerType": "remote",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "git.confirmSync": false,
+
+    "debug.console.fontSize": 18,
+    "debug.showBreakpointsInOverviewRuler": true,
+    "bracketPairColorizer.depreciation-notice": false,
+
+
+    //*******vim*************//
+    // 绑定vim前导键
+    "vim.leader": "<space>",
+    // 启用easymotion插件
+    "vim.easymotion": true,
+    // 启用系统粘贴板作为vim寄存器
+    "vim.useSystemClipboard": true,
+    // 由vim接管ctrl+any的按键，而不是vscode
+    "vim.useCtrlKeys": true,
+    // 突出显示与当前搜索匹配的所有文本
+    "vim.hlsearch": true,
+    // 普通模式下的非递归按键绑定
+    "vim.normalModeKeyBindingsNonRecursive": [],
+    // 插入模式下的非递归按键绑定
+    "vim.insertModeKeyBindings": [],
+    // 命令模式下的非递归按键绑定
+    "vim.commandLineModeKeyBindingsNonRecursive": [],
+    // 可视模式下的非递归按键绑定
+    "vim.operatorPendingModeKeyBindings": [],
+    // 下面定义的按键将交由vscode进行处理，而不是vscode-vim插件
+    "vim.handleKeys": {
+      "<C-a>": false,
+      "<C-f>": false
+    },
+    //*********vim*****************//
+
+    //**********doxygen************//
+    // Doxygen documentation generator设置
+    // 文件注释：版权信息模板
+    "doxdocgen.file.copyrightTag": [
+      "@copyright Copyright (c) {year}  XX通信公司"
+    ],
+    // 文件注释：自定义模块，这里我添加一个修改日志
+    "doxdocgen.file.customTag": [
+      "@par 修改日志:",
+      "<table>",
+      "<tr><th>Date       <th>Version <th>Author  <th>Description",
+      "<tr><td>{date} <td>1.0     <td>wangh     <td>内容",
+      "</table>"
+    ],
+    // 文件注释的组成及其排序
+    "doxdocgen.file.fileOrder": [
+      "file",		// @file
+      "brief",	// @brief 简介
+      "author",	// 作者
+      "version",	// 版本
+      "date",		// 日期
+      "empty",	// 空行
+      "copyright",// 版权
+      "empty",
+      "custom"	// 自定义
+    ],
+    // 下面时设置上面标签tag的具体信息
+    "doxdocgen.file.fileTemplate": "@file {name}",
+    "doxdocgen.file.versionTag": "@version 1.0",
+    "doxdocgen.generic.authorEmail": "lewin2519@foxmail.com",
+    "doxdocgen.generic.authorName": "lewin.li",
+    "doxdocgen.generic.authorTag": "@author {author} ({email})",
+    // 日期格式与模板
+    "doxdocgen.generic.dateFormat": "YYYY-MM-DD",
+    "doxdocgen.generic.dateTemplate": "@date {date}",
+
+    // 根据自动生成的注释模板（目前主要体现在函数注释上）
+    "doxdocgen.generic.order": [
+      "brief",
+      "tparam",
+      "param",
+      "return"
+    ],
+    "doxdocgen.generic.briefTemplate": "@brief{indent:8}doc",
+    "doxdocgen.generic.paramTemplate": "@param{indent:8}{param}{indent:25}doc",
+    "doxdocgen.generic.returnTemplate": "@return {type} ",
+    "doxdocgen.generic.splitCasingSmartText": true,
+
+    "[cuda-cpp]": {
+    
+      "editor.wordBasedSuggestions": false,
+      "editor.suggest.insertMode": "replace",
+      "editor.semanticHighlighting.enabled": true
+    },
+    "debug.allowBreakpointsEverywhere": true,
+
+    //********terminal********************//
+    // terminal
+    // "terminal.integrated.fontFamily": "monospace",
+    "terminal.integrated.fontSize": 18,
+    "terminal.integrated.inheritEnv": false,
+    "terminal.integrated.defaultProfile.windows":"Git Bash",
+    "terminal.integrated.profiles.windows": {
+      "Git Bash": {
+        "source": "Git Bash"
+      },
+      "PowerShell": {
+        "source": "PowerShell",
+        "icon": "terminal-powershell"
+      },
+      "Command Prompt": {
+        "path": [
+          "${env:windir}\\Sysnative\\cmd.exe",
+          "${env:windir}\\System32\\cmd.exe"
+        ],
+        "args": [],
+        "icon": "terminal-cmd"
+      },
+      "Windows PowerShell": {
+        "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+      }
+    },
+    //**********terminal****************//
+
+
+    "[python]": {
+      "editor.formatOnType": true
+    },
+
+    "extensions.ignoreRecommendations": true,
+
+    //*****workbench******//
+    "workbench.editor.enablePreview": false,
+    "workbench.sideBar.location": "left",
+    "workbench.editorAssociations": {
+      "*.ipynb": "jupyter-notebook",
+      "*.xmind": "default",
+      "*.html": "default",
+      "*.svg": "default"
+    },
+    "workbench.colorTheme": "Default High Contrast",
+    // "workbench.iconTheme": "material-icon-theme",
+    //*****workbench******//
+
+    //******c_cpp*****//
+    // "C_Cpp.intelliSenseEngineFallback": "Enabled",
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.cStandard": "c11",
+    "C_Cpp.inactiveRegionOpacity": 0.55,
+    //******c_cpp*****//
+
+    //*****clangd******//
+    // "clangd.path": "c:\\Users\\lewin\\AppData\\Roaming\\Code\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\16.0.2\\clangd_16.0.2\\bin\\clangd.exe",
+
+    //*****clangd******//
+
+    //*****cmake******//
+    "cmake.cmakePath": "D:\\Arm-Development-Toolchains\\cmake-3.27.0\\bin\\cmake.exe",
+    "terminal.explorerKind": "external",
+    //*****cmake******//
+
+
+   
+
+
+}
