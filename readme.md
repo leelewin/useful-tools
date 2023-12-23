@@ -24,7 +24,11 @@ useful docker shell script
 ## 3.vim
 vim的一些快捷键的用法
 
-
-
 ## 4.git
 git的使用的一些心得体会
+
+## 5.shell
+shell脚本的编写指南
+
+## 6.gdb
+gdb
