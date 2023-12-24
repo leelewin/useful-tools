@@ -30,7 +30,11 @@ env命令或printenv命令，可以显示所有环境变量。
 $ env
 ```
 常用环境变量：
+```
 PATH：由冒号分开的目录列表，当输入可执行程序名后，会搜索这个目录列表。
+LD_LIBRARY_PATH: 当执行函数动态链接.so时，如果此文件不在缺省目录下‘/lib’ and ‘/usr/lib’.那么就需要指定环境变量LD_LIBRARY_PATH。
+LIBRARY_PATH: 用于在程序编译期间查找动态链接库时指定查找共享库的路径，例如，指定gcc编译需要用到的动态链接库的目录
+```
 
 #### 自定义变量
 自定义变量是用户在当前 Shell 里面自己定义的变量，仅在当前 Shell 可用。一旦退出当前 Shell，该变量就不存在了。
@@ -247,3 +251,15 @@ set -o pipefail
 # 这两种写法建议放在所有 Bash 脚本的头部。
 ```
 
+### 7. shell命令
+```shell
+# 获取文件名（带后缀）
+$ basename $0
+# 获取文件名，不带后缀
+$ basename $(basename $0 .sh)
+# 从路径提取目录名
+$ dirname $filepath
+$
+$
+$
+```
