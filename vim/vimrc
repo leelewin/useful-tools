@@ -1,0 +1,86 @@
+" Setting some decent VIM settings for programming
+" This source file comes from git-for-windows build-extra repository (git-extra/vimrc)
+
+ru! defaults.vim                " Use Enhanced Vim defaults
+set mouse=                      " Reset the mouse setting from defaults
+aug vimStartup | au! | aug END  " Revert last positioned jump, as it is defined below
+let g:skip_defaults_vim = 1     " Do not source defaults.vim again (after loading this system vimrc)
+
+set ai                          " set auto-indenting on for programming
+set showmatch                   " automatically show matching brackets. works like it does in bbedit.
+set vb                          " turn on the "visual bell" - which is much quieter than the "audio blink"
+set laststatus=2                " make the last line where the status is two lines deep so you can see status always
+set showmode                    " show the current mode
+set clipboard=unnamed           " set clipboard to unnamed to access the system clipboard under windows
+set wildmode=list:longest,longest:full   " Better command line completion
+
+syntax on                       " 开启语法高亮
+set tabstop=4                   " tab lenth"
+set number                      " show line number"
+set relativenumber
+set ignorecase                  " ignore   case
+set showmode                    " show current mode
+set encoding=utf-8
+set softtabstop=4
+set cursorline
+set hlsearch
+set smartcase
+set mouse=a                     " 支持鼠标
+
+"set tags=/path/to/tags
+
+" Taglist插件配置
+"let Tlist_Show_One_File           = 1 " 只显示当前文件的tags
+"let Tlist_Auto_Open               = 1 " 打开vim自动打开Tlist
+"let Tlist_Exit_OnlyWindow         = 1 " 如果Tlist窗口是最后一个窗口则退出Vim
+"let Tlist_Use_Left_Window         = 1 " 在左侧窗口中显示
+"let Tlist_File_Fold_Auto_Close    = 1 " 自动折叠
+"let Tlist_Auto_Update             = 1 " 自动更新
+"let Tlist_WinWidth        =    30
+
+" <F4> 打开 Tlist 窗口，在左侧栏显示
+"map <F4> :TlistToggle<CR>
+
+" 默认启动auto-popup
+"let g:acp_enableAtStartUp   =  1
+
+
+" Show EOL type and last modified timestamp, right after the filename
+" Set the statusline
+set statusline=%f               " filename relative to current $PWD
+set statusline+=%h              " help file flag
+set statusline+=%m              " modified flag
+set statusline+=%r              " readonly flag
+set statusline+=\ [%{&ff}]      " Fileformat [unix]/[dos] etc...
+set statusline+=\ (%{strftime(\"%H:%M\ %d/%m/%Y\",getftime(expand(\"%:p\")))})  " last modified timestamp
+set statusline+=%=              " Rest: right align
+set statusline+=%l,%c%V         " Position in buffer: linenumber, column, virtual column
+set statusline+=\ %P            " Position in buffer: Percentage
+
+if &term =~ 'xterm-256color'    " mintty identifies itself as xterm-compatible
+  if &t_Co == 8
+    set t_Co = 256              " Use at least 256 colors
+  endif
+  " set termguicolors           " Uncomment to allow truecolors on mintty
+endif
+"------------------------------------------------------------------------------
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+    " Set UTF-8 as the default encoding for commit messages
+    autocmd BufReadPre COMMIT_EDITMSG,MERGE_MSG,git-rebase-todo setlocal fileencoding=utf-8
+
+    " Remember the positions in files with some git-specific exceptions"
+    autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$")
+      \           && &filetype !~# 'commit\|gitrebase'
+      \           && expand("%") !~ "ADD_EDIT.patch"
+      \           && expand("%") !~ "addp-hunk-edit.diff" |
+      \   exe "normal! g`\"" |
+      \ endif
+
+      autocmd BufNewFile,BufRead *.patch set filetype=diff
+
+      autocmd Filetype diff
+      \ highlight WhiteSpaceEOL ctermbg=red |
+      \ match WhiteSpaceEOL /\(^+.*\)\@<=\s\+$/
+endif " has("autocmd")

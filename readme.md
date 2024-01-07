@@ -23,6 +23,8 @@ useful docker shell script
 
 ## 3.vim
 vim的一些快捷键的用法
+vimrc
+vim plugin
 
 ## 4.git
 git的使用的一些心得体会
