@@ -1,15 +1,15 @@
 ### 
+![git flow](git_flow.png)
 
-远程仓库  
-  |  
-  |  
-本地仓库  
-  |  
-  |  
-暂存区  
-  |  
-  |  
-工作区  
+### 创建新的仓库并推送远程
+```
+git init
+git add xxx
+git commit xxx
+git branch -M main
+git remote add origin /url
+git push -u origin main
+```
 
 ### 实用git命令
 #### git diff
@@ -22,6 +22,8 @@ $ git diff --cached file.txt
 $ git diff HEAD file.txt
 #查看两个commit的差异
 $ git diff <commit1> <commit2>
+#查看两个commit中某个文件的差异
+$ git diff <commit1> <commit2> -- filename
 #*生成patch
 $ git diff xxx > file.patch
 #查看patch文件
@@ -34,15 +36,6 @@ $ git apply file.patch
 $ git apply --reject
 ```
 
-### 创建新的仓库并推送远程
-```
-git init
-git add xxx
-git commit xxx
-git branch -M main
-git remote add origin /url
-git push -u origin main
-```
 
 ### 使用心得
 pull 时 （工作区有未暂存的修改）或（暂存区有未提交的修改） 时，
@@ -53,7 +46,7 @@ git终止并提示会覆写(前提是和远端修改的是同一个文件，如�
 
 ### 项目push只允许有一个commit   
 方法：     
-1.无分支情况下
+1.1无分支情况下 stash
 ```
 $git stash
 $git pull //或者 git fetch git merge
@@ -63,7 +56,10 @@ $git commit
 
 $git commit --amend
 ```
-
+1.2 无分支的情况下 rebase
+```
+todo
+```
 
 2.有新建分支的情况下
 ```
@@ -93,5 +89,5 @@ gerrit
 repo
 
 ### 资料
-
 [阮一峰 Git 教程](https://www.bookstack.cn/read/git-tutorial/docs-basic.md)
+[git 图文教程](https://www.cnblogs.com/anding/p/16987769.html)
