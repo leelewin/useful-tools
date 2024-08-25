@@ -1,4 +1,4 @@
-
+## docker CMD
 ![image](https://github.com/user-attachments/assets/20b180e2-2bf1-4854-bcf5-8cff40cdc8f4)
 
 attach    Attach to a running container  #当前shell下attach连接指定运行镜像
@@ -78,3 +78,15 @@ unpause  Unpause all processes within a container  #取消暂停容器
 version  Show the Docker version information#查看容器版本号
 
 wait     Block until a container stops, then print its exit code  #截取容器停止时的退出状态值
+
+## dockfile
+Dockerfile 是一个文本文件，包含了构建 Docker 镜像的所有指令。
+
+Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。
+
+通过定义一系列命令和参数，Dockerfile 指导 Docker 构建一个自定义的镜像。
+
+Dockerfile 的RUN指令每执行一次都会在 docker 上新建一层。所以过多无意义的层，会造成镜像膨胀过大,方式是通过&&来将多个指令合并为一个。
+
+参考：
+https://www.runoob.com/docker/docker-dockerfile.html
