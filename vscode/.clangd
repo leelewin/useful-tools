@@ -1,0 +1,88 @@
+# Clangd configuration for Raspberry Pi Pico SDK
+CompileFlags:
+  # Add the compile_commands.json file
+  CompilationDatabase: pico-examples/build/
+  
+  # Specify the compiler (optional, mainly for clarity)
+  Compiler: arm-none-eabi-gcc
+
+  # Controls how builtin headers are handled:
+  # - Clangd (default): Use clangd's own builtin headers
+  # - QueryDriver: Use headers from the actual compiler (may cause compatibility issues)
+  # For Pico SDK projects using ARM GCC, either option can work, but Clangd is safer
+  BuiltinHeaders: Clangd
+
+  # Remove some problematic flags for clangd
+  Remove: [
+    -fno-exceptions,
+    -fno-rtti,
+    -nostdlib,
+    -nostartfiles,
+    -ffunction-sections,
+    -fdata-sections
+  ]
+
+  # Add standard include paths for better intellisense
+  Add: [
+    -Ipico-sdk/src/common/pico_base_headers/include,
+    -Ipico-sdk/src/common/pico_stdlib_headers/include,
+    -Ipico-sdk/src/rp2_common/hardware_gpio/include,
+    -Ipico-sdk/src/rp2_common/hardware_base/include,
+    -Ipico-sdk/src/rp2_common/pico_stdlib/include,
+    -Ipico-sdk/src/rp2_common/hardware_uart/include,
+    -Ipico-sdk/src/rp2_common/hardware_divider/include,
+    -Ipico-sdk/src/rp2_common/pico_runtime/include,
+    -Ipico-sdk/src/rp2_common/pico_printf/include,
+    -Ipico-sdk/src/rp2_common/pico_bootrom/include,
+    -Ipico-sdk/src/rp2_common/pico_platform_compiler/include,
+    -Ipico-sdk/src/rp2_common/pico_platform_sections/include,
+    -Ipico-sdk/src/rp2_common/pico_platform_panic/include,
+    -Ipico-sdk/src/rp2_common/pico_crt0/include,
+    -Ipico-sdk/src/rp2_common/hardware_regs/include,
+    -Ipico-sdk/src/rp2040/hardware_regs/include,
+    -Ipico-sdk/src/rp2040/hardware_structs/include,
+    -Ipico-sdk/src/boards/include,
+    -I/usr/lib/gcc/arm-none-eabi/10.3.1/include,
+    -I/usr/lib/gcc/arm-none-eabi/10.3.1/include-fixed,
+    -I/usr/include/newlib
+  ]
+
+# Indexing options
+Index:
+  # Background indexing for better performance
+  # Build = enable background indexing (default)
+  # Skip = disable background indexing
+  Background: Build
+  
+  # Enable eager indexing of standard library for code completion
+  StandardLibrary: true
+  
+  # External index sources (uncomment and configure if needed):
+  # External:
+  #   File: /abs/path/to/an/index.idx
+  #   # OR
+  #   Server: my.index.server.com:50051
+  #   MountPoint: /files/under/this/project/
+
+Diagnostics:
+  # Suppress some warnings that are not relevant for clangd
+  Suppress: [
+    "*"
+  ]
+  
+  # But show errors
+  ClangTidy:
+    Add: 
+      - readability-*
+      - performance-*
+      - bugprone-*
+
+InlayHints:
+  # Disable parameter name hints to avoid showing function variable names
+  ParameterNames: false
+  # Keep other inlay hints enabled
+  Enabled: true
+  DeducedTypes: true
+  Designators: true
+
+SemanticHighlighting: true
