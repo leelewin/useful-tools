@@ -20,6 +20,8 @@ useful docker shell script
  
 配合gdb强大的调试功能
 
+clangd vscode配置
+`.clangd`配置文件
 
 ## 3.vim
 vim的一些快捷键   
