@@ -35,7 +35,12 @@ $ git apply file.patch
 #patch冲突
 $ git apply --reject
 ```
-
+#### git rebase
+```
+git rebase --onto master server client
+#将client中的修改合并到主分支发布,但暂时不想合并server中修改。
+#命令的意思是：取出client分支，找出从server分支分歧后的补丁，然后把这些补丁在master上重放一边。
+```
 
 ### 使用心得
 pull 时 （工作区有未暂存的修改）或（暂存区有未提交的修改） 时，
@@ -90,4 +95,5 @@ repo
 
 ### 资料
 [阮一峰 Git 教程](https://www.bookstack.cn/read/git-tutorial/docs-basic.md)
+
 [git 图文教程](https://www.cnblogs.com/anding/p/16987769.html)
