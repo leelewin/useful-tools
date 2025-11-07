@@ -79,6 +79,8 @@ version  Show the Docker version information#查看容器版本号
 
 wait     Block until a container stops, then print its exit code  #截取容器停止时的退出状态值
 
+ros容器
+docker run --env="DISPLAY" --net=host --volume="$HOME/.Xauthority:/root/.Xauthority:rw"  --env="QT_X11_NO_MITSHM=1"  -v /tmp/.X11-unix:/tmp/.X11-unix:ro -it --name visual_use -v /home:/out_home zkjoker/laserslam:v4 /bin/bash
 ## dockfile
 Dockerfile 是一个文本文件，包含了构建 Docker 镜像的所有指令。
 
